@@ -1,8 +1,11 @@
 ---
-title: Hello World
-tag: 标签
-categories: 分类
+title: Language Test
+tag: Other
+categories: Other
 ---
+
+C++
+<!-- more -->
 ```C++
 #include <iostream>
 int main()
@@ -11,49 +14,45 @@ int main()
     return 0
 }
 ```
-<!-- more -->
 
-T  
-E  
-S  
-T  
-T  
-E  
-S  
-T  
-T  
-E  
-S  
-T  
-T  
-E  
-S  
-T  
-T  
-E  
-S  
-T  
-T  
-E  
-S  
-T  
-T  
-E  
-S  
-T  
-T  
-E  
-S  
-T  
-T  
-E  
-S  
-T  
-T  
-E  
-S  
-T  
-T  
-E  
-S  
-T  
+C#
+``` C#
+class Hello {         
+    static void Main(string[] args)
+    {
+        System.Console.WriteLine("Hello World!");
+    }
+}
+```
+
+HLSL
+```C++
+struct VSInput
+{
+[[vk::location(0)]] float3 Pos : POSITION0;
+[[vk::location(1)]] float3 Color : COLOR0;
+};
+
+struct UBO
+{
+	float4x4 projectionMatrix;
+	float4x4 modelMatrix;
+	float4x4 viewMatrix;
+};
+
+cbuffer ubo : register(b0) { UBO ubo; }
+
+struct VSOutput
+{
+	float4 Pos : SV_POSITION;
+[[vk::location(0)]] float3 Color : COLOR0;
+};
+
+VSOutput main(VSInput input)
+{
+	VSOutput output = (VSOutput)0;
+	output.Color = input.Color;
+	output.Pos = mul(ubo.projectionMatrix, mul(ubo.viewMatrix, mul(ubo.modelMatrix, float4(input.Pos.xyz, 1.0))));
+	return output;
+}
+```

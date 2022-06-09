@@ -1,0 +1,1 @@
+start cmd /k "hexo clean & hexo generate & hexo deploy"
